@@ -1,13 +1,17 @@
 package yufeng.guru.springframework.spring5webapp.service;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+import yufeng.guru.springframework.spring5webapp.repositories.EnglishGreetingRepository;
 
-@Profile({"EN","default"})
-@Service("i18NService")
 public class I18NEnglishService implements GreetService {
+
+    private final EnglishGreetingRepository englishRepository;
+
+    public I18NEnglishService(EnglishGreetingRepository englishRepository) {
+        this.englishRepository = englishRepository;
+    }
+
     @Override
     public String sayGreeting() {
-        return "Hello every body - EN profile";
+        return englishRepository.getGreeting();
     }
 }
