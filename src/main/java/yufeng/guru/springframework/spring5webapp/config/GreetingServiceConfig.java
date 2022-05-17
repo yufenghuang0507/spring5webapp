@@ -1,14 +1,12 @@
 package yufeng.guru.springframework.spring5webapp.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import yufeng.guru.springframework.spring5webapp.repositories.EnglishGreetingRepository;
 import yufeng.guru.springframework.spring5webapp.repositories.EnglishGreetingRepositoryImpl;
 import yufeng.guru.springframework.spring5webapp.service.*;
 
 @Configuration
+@ImportResource("classpath:spring-config.xml")
 public class GreetingServiceConfig {
     @Bean
     EnglishGreetingRepository englishRepository() {

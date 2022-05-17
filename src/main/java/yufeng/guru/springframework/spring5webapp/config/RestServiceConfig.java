@@ -1,8 +1,6 @@
 package yufeng.guru.springframework.spring5webapp.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import yufeng.guru.springframework.resfful.service.GetService;
 import yufeng.guru.springframework.resfful.service.PostService;
 import yufeng.guru.springframework.resfful.service.RestBaseService;
@@ -17,6 +15,7 @@ public class RestServiceConfig {
     }
 
     @Profile({"post","default"})
+    @Primary
     @Bean
     RestBaseService postService(RestServiceFactory restServiceFactory) {
         return (PostService)restServiceFactory.getRestBaseService("POST");

@@ -2,14 +2,18 @@ package yufeng.guru.springframework.spring5webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import yufeng.guru.springframework.spring5webapp.controller.RestServiceController;
 import yufeng.guru.springframework.spring5webapp.controller.*;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication
 @ComponentScan(basePackages = {"yufeng.guru.springframework"})
+@EnableJpaRepositories("yufeng.guru.springframework.spring5webapp.repositories")
+@EntityScan("yufeng.guru.springframework.spring5webapp.domain")
 public class Spring5webappApplication {
 
 	public static void main(String[] args) {

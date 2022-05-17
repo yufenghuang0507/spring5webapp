@@ -1,0 +1,21 @@
+services:
+  springweb-app:
+    image: spring5webapp
+    ports:
+      - 8081:8081
+    depends_on:
+      - mysqldb
+    extra_hosts:
+      - "mysql:<your ip>"
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb/springbootdb?useSSL=false
+#      - SPRING_DATASOURCE_USERNAME=root
+#      - SPRING_DATASOURCE_PASSWORD=1qaz2wsx
+#  mysqldb:
+#    image: mysql:8
+#    ports:
+#      - 3306:3306
+#    environment:
+#      MYSQL_DATABASE: springbootdb
+#      MYSQL_ROOT_PASSWORD: 1qaz2wsx
+
